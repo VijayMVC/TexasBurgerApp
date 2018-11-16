@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TexasBurgerApp", "TexasBurgerApp\TexasBurgerApp.csproj", "{B9DC3529-97AA-4EB7-8C20-2F89D39163B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9DC3529-97AA-4EB7-8C20-2F89D39163B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DC3529-97AA-4EB7-8C20-2F89D39163B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DC3529-97AA-4EB7-8C20-2F89D39163B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DC3529-97AA-4EB7-8C20-2F89D39163B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DEC77EC0-8C7B-44FF-952F-3EB2AE992173}
+	EndGlobalSection
+EndGlobal
