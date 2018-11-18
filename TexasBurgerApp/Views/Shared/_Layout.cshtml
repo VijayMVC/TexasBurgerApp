@@ -8,35 +8,113 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-11">
+                <!-- Burger-Menu nav tabs-->
+                <ul class="nav nav-tabs BuildNav">
+                    <li class="nav-item text-center">
+                        <a class="nav-link active show" data-toggle="tab" href="#bunPanel"><span class="icon icon-bun"></span>Brød</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" data-toggle="tab" href="#meatPanel"><span class="icon icon-meat"></span>Kød</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" data-toggle="tab" href="#greenPanel"><span class="icon icon-salad"></span>Grønt</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" data-toggle="tab" href="#cheesePanel"><span class="icon icon-cheese"></span>Ost</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" data-toggle="tab" href="#saucePanel"><span class="icon icon-sausages"></span>Dressing</a>
+                    </li>
+                    <li class="nav-item text-center">
+                        <a class="nav-link" data-toggle="tab" href="#saucePanel"><span class="icon icon-drink"></span>Drinks</a>
+                    </li>
                 </ul>
+
+                @RenderBody()
+
+                <div class="col-1">
+                    <!-- Multiple orders menu-->
+
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/CreateBurgerJS")
+        @RenderSection("scripts", required: false)
+
+
+
+        <script>
+            (function ($) {
+                function calcStepSize(optionNode) {
+                    var breakM = 990;
+                    var breakS = 768;
+
+                    var width = $(window).innerWidth();
+
+                    if (width < breakS) {
+                        var key = 's';
+                    } else if (width < breakM) {
+                        key = 'm';
+                    } else {
+                        key = 'l';
+                    }
+
+                    var cnt = 1 * optionNode.data("itemcount-" + key);
+
+                    return cnt > 0 ? cnt : 1;
+                }
+
+                function repartition(container, items, count) {
+                    container.children().remove();
+
+                    for (var i = 0; i < items.length; i++) {
+                        var cBlock = $('<div class="carousel-item" ></div').appendTo(container);
+                        var cInnerBlock = $('<div class="row"></div>').appendTo(cBlock);
+
+                        for (var j = 0; j < count; j++) {
+                            var cIdx = (i + j) % items.length;
+
+                            cInnerBlock.append($(items.get(cIdx)).clone());
+                        }
+                    }
+
+                    container.children().first().addClass("active");
+                }
+
+                $('.carousel.multi').each(function (idx, El) {
+                    var carousel = $(El);
+                    var container = carousel.find('.carousel-inner');
+
+                    if (!container.children().first().hasClass('carousel-item')) {
+                        var items = container.children().clone();
+
+                        var lastSize = calcStepSize(carousel);
+                        repartition(container, items, lastSize);
+
+                        $(window).resize(function () {
+                            var cSize = calcStepSize(carousel);
+
+                            if (cSize != lastSize) {
+                                repartition(container, items, cSize);
+                                lastSize = cSize;
+                            }
+                        });
+                    } else {
+                        container.children().first().addClass("active");
+                    }
+
+                    carousel.carousel({
+                        interval: false
+                    });
+                });
+
+            }(jQuery));
+        </script>
 </body>
 </html>
