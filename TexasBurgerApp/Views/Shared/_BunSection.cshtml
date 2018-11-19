@@ -13,10 +13,10 @@
             </div>
             <div class="col-md-4 col-xs-12">
                 <p class="list-head"><span id="bun-counter">0</span>/1</p>
-                <h2 id="selected-heading">@Model.CurrentlySelected.IngName</h2>
-                <p>Pris: <span id="selected-price">@Model.CurrentlySelected.Cost</span> kr</p>
-                <a class="btn btn-primary btn-lg btn-block" id="selected-btn" data-type="1" data-ing-id="@Model.CurrentlySelected.ID" data-ing-name="@Model.CurrentlySelected.IngName" href="@Url.Action("AddBun", "Burger", new { id =  Model.CurrentlySelected.ID})">+ Tilføj</a>
-                <a class="btn btn-primary btn-lg btn-block d-none" id="unselect-btn" data-type="1" data-ing-id="@Model.CurrentlySelected.ID" data-ing-name="@Model.CurrentlySelected.IngName" href="@Url.Action("AddBun", "Burger", new { id =  Model.CurrentlySelected.ID})">+ Fjern</a>
+                <h2 id="selected-heading"></h2>
+                <p>Pris: <span id="selected-price"></span> kr</p>
+                <a class="btn btn-primary btn-lg btn-block" id="selected-btn" data-type="1" data-ing-id="" data-ing-name="" href="">+ Tilføj</a>
+                <a class="btn btn-primary btn-lg btn-block d-none" id="unselect-btn" data-type="1" data-ing-id="" data-ing-name="" href="">+ Fjern</a>
             </div>
         </div>
         <div class="col-12">
@@ -53,18 +53,13 @@
 
         </div>
 
-        @*<div class="col-12 large-menu-con">
+        <div class="col-12 large-menu-con">
             <div class="col-12 large-menu">
                 <div class="row">
-                    <a>
-                        <div class="col-6 large-menu-button">< <span class="icon icon-bun"></span> Brød</div>
-                    </a>
-                    <a data-toggle="tab" href="#meatPanel">
-                        <div class="col-6 text-right large-menu-button">Kød <span class="icon icon-meat"></span> ></div>
-                    </a>
+                    <div class="col-12 text-right large-menu-button"><a class="finish-burger-btn">Færdig <span class="icon icon-bun"></span> ></a></div>
                 </div>
             </div>
-        </div>*@
+        </div>
    
     </div>
 

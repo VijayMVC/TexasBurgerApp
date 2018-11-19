@@ -26,10 +26,30 @@ namespace TexasBurgerApp.Controllers
             return View(viewModel);
         }
 
-        public ActionResult AddBurger(int bunID, int meatID, int? cheeseID)
-        {
 
-            return Content("Test Data " + bunID);
+        public ActionResult AddBurger(string custName, int tableID, int bunID, int meatID, int cheeseID)
+        {
+            IngridientModel Bun = new IngMapper().GetIngridient(bunID);
+            IngridientModel Meat = new IngMapper().GetIngridient(meatID);
+
+            MenuModel Menu = new MenuModel
+            {
+                CustName = custName,
+                TableID = tableID,
+                Bun = Bun,
+                Meat = Meat
+            };
+
+            if(cheeseID != 0)
+            {
+                Menu.Cheese = new IngMapper().GetIngridient(cheeseID);
+            }
+
+            IngMapper mapper = new IngMapper();
+            mapper.CreateNewBurger(Menu);
+
+            return this.RedirectToAction("Index", "Burger");
+
         }
     }
 }

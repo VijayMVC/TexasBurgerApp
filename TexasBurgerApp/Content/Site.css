@@ -21,6 +21,9 @@
     .picked-list {
         display: none;
     }
+    .rounded {
+        margin-right: 0!important;
+    }
 }
 
 
@@ -34,8 +37,8 @@
 body {
     background-color: #8D0001;
 }
-.container-fluid{
-    min-width:360px;
+.container-fluid, .modal{
+    min-width:450px;
 }
 .BuildNav{
     width:100%;
@@ -65,13 +68,19 @@ body {
     color: #1C1C1C;
     margin:20px 0 50px 0;
 }
+.rounded {
+    margin-right: 20%;
+}
+.carousel {
+    margin-top: 50px;
+}
 .carousel-image {
-    width:150px;
+    width: 150px;
 }
 .carousel-text {
     font-family: 'NewTow';
     font-size: 22px;
-    margin-top: 10px;
+    margin-top: 20px;
     color: #1C1C1C;
 }
 .btn-primary {
@@ -146,4 +155,15 @@ body {
 .modal-title {
     font-family:Overkill;
     font-size:24px;
+}
+.order-ul li{
+    list-style:none;
+    margin-left: 10px;
+}
+.order-ul > .order-list-heading {
+    font-weight:bold;
+    margin-left:0;
+}
+.has-error input{
+    border-color:red;
 }
