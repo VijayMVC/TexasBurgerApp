@@ -13,15 +13,14 @@ namespace TexasBurgerApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-                "AddBun",
-                "{controller}/{action}/{id}",
-                new
-                {
-                    controller = "Burger",
-                    action = "Index",
-                    id = ""
-            });
+            //routes.MapRoute(
+            //    "AddBurger",
+            //    "{controller}/{action}/{bunnID}/{meatID}/{cheeseID?}",
+            //    new
+            //    {
+            //        controller = "Burger",
+            //        action = "addBurger"
+            //});
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

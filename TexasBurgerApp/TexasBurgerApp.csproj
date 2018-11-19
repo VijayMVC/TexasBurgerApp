@@ -248,6 +248,7 @@
     <Content Include="Views\Burger\Index.cshtml" />
     <Content Include="Views\Shared\_BunSection.cshtml" />
     <Content Include="Views\Shared\_MeatSection.cshtml" />
+    <Content Include="Views\Shared\_CheeseSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-fluid main-container">
         <div class="row">
             <div class="col-11">
                 <!-- Burger-Menu nav tabs-->
@@ -20,10 +20,10 @@
                         <a class="nav-link" data-toggle="tab" href="#meatPanel"><span class="icon icon-meat"></span>Kød</a>
                     </li>
                     <li class="nav-item text-center">
-                        <a class="nav-link" data-toggle="tab" href="#greenPanel"><span class="icon icon-salad"></span>Grønt</a>
+                        <a class="nav-link" data-toggle="tab" href="#cheesePanel"><span class="icon icon-cheese"></span>Ost</a>
                     </li>
                     <li class="nav-item text-center">
-                        <a class="nav-link" data-toggle="tab" href="#cheesePanel"><span class="icon icon-cheese"></span>Ost</a>
+                        <a class="nav-link" data-toggle="tab" href="#greenPanel"><span class="icon icon-salad"></span>Grønt</a>
                     </li>
                     <li class="nav-item text-center">
                         <a class="nav-link" data-toggle="tab" href="#saucePanel"><span class="icon icon-sausages"></span>Dressing</a>
@@ -37,16 +37,52 @@
 
                 <div class="col-1">
                     <!-- Multiple orders menu-->
+                    <button class="btn btn-primary" type="button">Primary</button>
+
+
 
                 </div>
             </div>
         </div>
 
+        <div class="alert-bg error-alert">
+            <div class="alert alert-danger alert-dismissible error-alert" role="alert">
+                <strong>Vent!</strong> Din burger er ikke færdig! Du endnu har ikke valgt brød og kød.
+                <button type="button" class="close close-alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalCenterTitle">Bekræft Ordre</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="order-ul">
+                            <li></li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary col-6" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary col-6" id="modal-confirm-btn">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/CreateBurgerJS")
         @RenderSection("scripts", required: false)
-
 
 
         <script>

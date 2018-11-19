@@ -288,6 +288,65 @@ namespace TexasBurgerApp.Models
 
             return ingList;
         }
+        public List<IngridientModel> SelectAllCheese()
+        {
+            List<IngridientModel> ingList = new List<IngridientModel>();
+
+            SqlCommand command = GetConnection().CreateCommand();
+
+            command.CommandType = CommandType.Text;
+            command.CommandText =
+                @"SELECT 
+	                i.ID AS IngridientID,
+	                IngName,
+	                Cost,
+	                it.ID AS TypeID,
+	                TypeName
+                FROM Ingredient as i
+                INNER JOIN IngType AS it
+                ON i.FK_IngType = it.ID
+                INNER JOIN FK_Res_Ing AS fk_ri
+                ON fk_ri.FK_Ingredient = i.ID
+                INNER JOIN Resturant AS r
+                ON fk_ri.FK_Resturant = r.ID
+                WHERE r.ID = @id
+                AND it.TypeName = @typeName";
+
+            //Set Resturant ID
+            int id = 1;
+            string typeName = "Ost";
+
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@typeName", typeName);
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    ingList.Add
+                    (
+                        new IngridientModel
+                        {
+                            ID = (int)reader["IngridientID"],
+                            IngName = (string)reader["IngName"],
+                            Cost = (int)reader["Cost"],
+                            Type = new TypeModel
+                            {
+                                ID = (int)reader["TypeID"],
+                                TypeName = (string)reader["TypeName"]
+                            }
+
+                        }
+                    );
+                }
+
+            }
+
+            ReleaseConnection();
+
+            return ingList;
+        }
 
     }
 }

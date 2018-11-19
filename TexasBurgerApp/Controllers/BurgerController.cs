@@ -19,17 +19,17 @@ namespace TexasBurgerApp.Controllers
             {
                 ingridients = new IngMapper().SelectAllBread(),
                 ingridientsMeats = new IngMapper().SelectAllMeat(),
+                ingridientsCheese = new IngMapper().SelectAllCheese(),
                 CurrentlySelected = new IngMapper().GetIngridient((int)id)
             };
 
             return View(viewModel);
         }
 
-        public ActionResult AddBun(int id)
+        public ActionResult AddBurger(int bunID, int meatID, int? cheeseID)
         {
 
-            Session["Bun"] = id;
-            return RedirectToAction("Index");
+            return Content("Test Data " + bunID);
         }
     }
 }
