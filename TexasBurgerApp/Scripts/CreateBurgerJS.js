@@ -260,6 +260,8 @@ $(document).ready(function () {
             hrefURL += Burger.Meat.ID + "/";
             hrefURL += ((Burger.Cheese.ID != null) ? Burger.Cheese.ID : "");
 
+            alert("Din bestilling er blevet sendt videre!");
+
             window.location.href = hrefURL; 
             
         }
