@@ -14,9 +14,10 @@ namespace TexasBurgerApp.Models
         {
             //string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TexasBurger;Integrated Security=True";
 
-            string connString = @"Data Source=DC-1\SQLtexasburger;Initial Catalog=TexasBurger; user id=sa; password=MCBpower123;";
+            //string connString = @"Data Source=DC-1\SQLtexasburger;Initial Catalog=TexasBurger; user id=sa; password=MCBpower123;";
 
-            this.conn = new SqlConnection(connString);
+
+            this.conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["TexasBurgerDB"].ConnectionString);
 
             conn.Open();
 

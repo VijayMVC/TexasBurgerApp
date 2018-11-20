@@ -1,0 +1,170 @@
+﻿/*Fonts*/
+@font-face {
+    font-family: 'Overkill';
+    src: url('../Content/fonts/FTYOverKill_Hammered_NC.eott'); /* IE9 Compat Modes */
+    src: url('../Content/fonts/FTYOverKill_Hammered_NC.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../Content/fonts/FTYOverKill_Hammered_NC.woff') format('woff'), /* Modern Browsers */
+    url('../Content/fonts/FTYOverKill_Hammered_NC.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'NewTow';
+
+    src: url('../Content/fonts/NEWTOW.TTF.ttf') format('truetype') /* Safari, Android, iOS */
+}
+
+
+
+@media (max-width: 759px) {
+    .BuildNav .nav-item {
+        font-size: 18px;
+    }
+    .picked-list {
+        display: none;
+    }
+    .rounded {
+        margin-right: 0!important;
+    }
+}
+
+
+@media (min-width: 760px) {
+    .BuildNav .nav-item {
+        font-size: 23px;
+    }
+    
+}
+
+body {
+    background-color: #8D0001;
+    /*background-color: aquamarine;*/
+}
+.container-fluid, .modal{
+    min-width:550px;
+}
+.BuildNav{
+    width:100%;
+}
+.BuildNav .nav-item {
+    width: 16.65%;
+    font-family: 'Overkill';
+    background-color: #1C1C1C;
+    color: #DB000C;
+}
+.BuildNav .nav-item .active {
+    background-color: #F6EED9;
+    color: #1C1C1C;
+    border-color: #F6EED9;
+}
+.BuildNav .nav-item .icon {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+.tab-content {
+    background-color: #F6EED9;
+    padding-bottom:0;
+}
+.tab-content .heading-text {
+    font-family: 'Overkill';
+    color: #1C1C1C;
+    margin:20px 0 50px 0;
+}
+.rounded {
+    margin-right: 20%;
+}
+.carousel {
+    margin-top: 50px;
+}
+.carousel-image {
+    width: 150px;
+}
+.carousel-text {
+    font-family: 'NewTow';
+    font-size: 22px;
+    margin-top: 20px;
+    color: #1C1C1C;
+}
+.btn-primary {
+    background-color: #EB6864;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    height: 100px;
+    width: 100px;
+    background-image: none;
+}
+
+.carousel-control-next-icon:after, .carousel-control-prev-icon:after {
+    content: '>';
+    font-size: 55px;
+    font-weight: bold;
+    color: #1C1C1C;
+}
+
+.carousel-control-prev-icon:after {
+    content: '<';
+}
+.picked-list {
+    margin-top: -100px;
+    font-size: 12px;
+    font-family: NewTow;
+}
+.picked-list .list-head{
+    font-weight:bold;
+    font-size:14px;
+}
+.picked-list li {
+    list-style: none;
+}
+.large-menu-con {
+    padding-bottom:0;
+    margin-bottom:0;
+}
+.large-menu {
+    background-color: #1C1C1C;
+    color: #EB6864;
+    margin-top: 40px;
+    padding-bottom: 0;
+    font-size: 45px;
+    font-family: Overkill;
+}
+.large-menu-button {
+    cursor:pointer;
+}
+.selected-bun {
+    border: 1px solid black;
+}
+
+.alert {
+    position:fixed;
+    width:50%;
+    top:30%;
+    left:25%;
+    z-index:5;
+}
+.alert-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #1C1C1C;
+    opacity: 0.8;
+    display: none;
+    z-index: 1;
+}
+.modal-title {
+    font-family:Overkill;
+    font-size:24px;
+}
+.order-ul li{
+    list-style:none;
+    margin-left: 10px;
+}
+.order-ul > .order-list-heading {
+    font-weight:bold;
+    margin-left:0;
+}
+.has-error input{
+    border-color:red;
+}

@@ -21,7 +21,11 @@ namespace TexasBurgerApp
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            //bundles.Add(new StyleBundle("~/Content/site.css"));
+
+            //bundles.Add(new StyleBundle("~/Content/bootstrap-journal").Include("~/Content/bootstrap-journal.css"));
+
+            bundles.Add(new StyleBundle("~/Content/cssbundles").Include(
                       "~/Content/bootstrap-journal.css",
                       "~/Content/animations.css",
                       "~/Content/menu-icons.css",
