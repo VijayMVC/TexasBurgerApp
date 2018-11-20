@@ -6,7 +6,18 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
 
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    @*<link href="./Content/css" rel="stylesheet" />
+    <link href="./Content/bootstrap-journal.css" rel="stylesheet" />
+    <link href="./Content/animations.css" rel="stylesheet" />
+    <link href="./Content/menu-icons.css" rel="stylesheet" />
+    <link href="./Content/menu-icons-embedded.css" rel="stylesheet" />
+    <link href="./Content/menu-icons-ie7.css" rel="stylesheet" />
+    <link href="./Content/menu-icons-ie7-codes.css" rel="stylesheet" />
+    <link href="./Content/site.css" rel="stylesheet" />*@
+
+
+
 </head>
 <body>
     <div class="container-fluid main-container">
@@ -104,7 +115,11 @@
         @Scripts.Render("~/bundles/bootstrap")
         @Scripts.Render("~/bundles/CreateBurgerJS")
         @RenderSection("scripts", required: false)
-
+        
+<!--Legacy Fix -->
+@*<script src="/Scripts/CreateBurgerJS.js"></script>
+<script src="/Scripts/jquery-3.3.1.js"></script>
+<script src="/Scripts/bootstrap.js"></script>*@
 
         <script>
             (function ($) {
