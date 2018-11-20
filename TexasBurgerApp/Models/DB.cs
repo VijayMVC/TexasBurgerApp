@@ -12,9 +12,9 @@ namespace TexasBurgerApp.Models
         private SqlConnection conn;
         protected SqlConnection GetConnection()
         {
-            string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TexasBurger;Integrated Security=True";
+            //string connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TexasBurger;Integrated Security=True";
 
-            this.conn = new SqlConnection(connString);
+            this.conn = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["TexasBurgerDB"].ConnectionString);
 
             conn.Open();
 
