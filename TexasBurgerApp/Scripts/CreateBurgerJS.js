@@ -66,13 +66,10 @@ $(document).ready(function () {
 
     //Set Start items Dressing
     DisplayItem = $('.dressingDisplay').first();
-    console.log(DisplayItem);
     $("#selected-heading-dressing").html($(DisplayItem).data('dressing-ing-name'));
     $("#selected-price-dressing").html($(DisplayItem).data('dressing-ing-price'));
     srcString = "/Content/ingridients-images/" + $(DisplayItem).data('dressing-ing-id') + "_" + $(DisplayItem).data('dressing-ing-name') + ".png";
-    //$("#selected-image-dressing").attr("src", srcString);
-    alert(srcString);
-    $("#selected-image-dressing").attr("src", "/Content/ingridients-images/1006_Ketchup.png");
+    $("#selected-image-dressing").attr("src", srcString);
     $("#selected-dressing-btn").attr("data-dressing-ing-id", $(DisplayItem).data('dressing-ing-id'));
     $("#selected-dressing-btn").attr("data-dressing-ing-name", $(DisplayItem).data('dressing-ing-name'));
 
