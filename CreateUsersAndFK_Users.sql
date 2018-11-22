@@ -1,0 +1,21 @@
+ALTER TABLE BurgerOrder
+ADD FK_Resturant INT 
+
+FOREIGN KEY(FK_Resturant) REFERENCES Resturant(ID)
+
+CREATE TABLE Users(
+	ID INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+	Username VARCHAR(50) NOT NULL,
+	Password VARCHAR(60) NOT NULL,
+);
+
+CREATE TABLE ResturantUsers(
+	FK_Resturant INT NOT NULL,
+	FK_Users INT NOT NULL
+
+	FOREIGN KEY(FK_Resturant) REFERENCES Resturant(ID),
+
+	FOREIGN KEY(FK_Users) REFERENCES Users(ID),
+
+	PRIMARY KEY(FK_Resturant, FK_Users)
+);

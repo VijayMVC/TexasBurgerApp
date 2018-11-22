@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'NewTow';
+
+    src: url('../Content/fonts/NEWTOW.eott'); /* IE9 Compat Modes */
+    src: url('../Content/fonts/NEWTOW.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../Content/fonts/NEWTOW.woff') format('woff'), /* Modern Browsers */
+    url('../Content/fonts/NEWTOW.ttf') format('truetype') /* Safari, Android, iOS */
+}
