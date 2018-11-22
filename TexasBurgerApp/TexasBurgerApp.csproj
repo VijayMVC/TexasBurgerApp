@@ -242,6 +242,8 @@
     <Content Include="Views\Shared\_BunSection.cshtml" />
     <Content Include="Views\Shared\_MeatSection.cshtml" />
     <Content Include="Views\Shared\_CheeseSection.cshtml" />
+    <Content Include="Views\Shared\_GreenSection.cshtml" />
+    <Content Include="Views\Shared\_DressingSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

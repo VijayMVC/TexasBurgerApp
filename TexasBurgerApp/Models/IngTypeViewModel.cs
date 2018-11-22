@@ -10,6 +10,8 @@ namespace TexasBurgerApp.Models
         public List<IngridientModel> ingridients { get; set; }
         public List<IngridientModel> ingridientsMeats { get; set; }
         public List<IngridientModel> ingridientsCheese { get; set; }
+        public List<IngridientModel> ingridientsGreen { get; set; }
+        public List<IngridientModel> ingridientsDressing { get; set; }
         public IngridientModel CurrentlySelected{ get; set; }
 
     }

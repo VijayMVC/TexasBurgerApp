@@ -347,6 +347,125 @@ namespace TexasBurgerApp.Models
 
             return ingList;
         }
+        public List<IngridientModel> SelectAllGreen()
+        {
+            List<IngridientModel> ingList = new List<IngridientModel>();
+
+            SqlCommand command = GetConnection().CreateCommand();
+
+            command.CommandType = CommandType.Text;
+            command.CommandText =
+                @"SELECT 
+	                i.ID AS IngridientID,
+	                IngName,
+	                Cost,
+	                it.ID AS TypeID,
+	                TypeName
+                FROM Ingredient as i
+                INNER JOIN IngType AS it
+                ON i.FK_IngType = it.ID
+                INNER JOIN FK_Res_Ing AS fk_ri
+                ON fk_ri.FK_Ingredient = i.ID
+                INNER JOIN Resturant AS r
+                ON fk_ri.FK_Resturant = r.ID
+                WHERE r.ID = @id
+                AND it.TypeName = @typeName";
+
+            //Set Resturant ID
+            int id = 1;
+            string typeName = "Grønt";
+
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@typeName", typeName);
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    ingList.Add
+                    (
+                        new IngridientModel
+                        {
+                            ID = (int)reader["IngridientID"],
+                            IngName = (string)reader["IngName"],
+                            Cost = (int)reader["Cost"],
+                            Type = new TypeModel
+                            {
+                                ID = (int)reader["TypeID"],
+                                TypeName = (string)reader["TypeName"]
+                            }
+
+                        }
+                    );
+                }
+
+            }
+
+            ReleaseConnection();
+
+            return ingList;
+        }
+        public List<IngridientModel> SelectAllDressing()
+        {
+            List<IngridientModel> ingList = new List<IngridientModel>();
+
+            SqlCommand command = GetConnection().CreateCommand();
+
+            command.CommandType = CommandType.Text;
+            command.CommandText =
+                @"SELECT 
+	                i.ID AS IngridientID,
+	                IngName,
+	                Cost,
+	                it.ID AS TypeID,
+	                TypeName
+                FROM Ingredient as i
+                INNER JOIN IngType AS it
+                ON i.FK_IngType = it.ID
+                INNER JOIN FK_Res_Ing AS fk_ri
+                ON fk_ri.FK_Ingredient = i.ID
+                INNER JOIN Resturant AS r
+                ON fk_ri.FK_Resturant = r.ID
+                WHERE r.ID = @id
+                AND it.TypeName = @typeName";
+
+            //Set Resturant ID
+            int id = 1;
+            string typeName = "Dressing";
+
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@typeName", typeName);
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    ingList.Add
+                    (
+                        new IngridientModel
+                        {
+                            ID = (int)reader["IngridientID"],
+                            IngName = (string)reader["IngName"],
+                            Cost = (int)reader["Cost"],
+                            Type = new TypeModel
+                            {
+                                ID = (int)reader["TypeID"],
+                                TypeName = (string)reader["TypeName"]
+                            }
+
+                        }
+                    );
+                }
+
+            }
+
+            ReleaseConnection();
+
+            return ingList;
+        }
+
 
         public void CreateNewBurger(MenuModel Menu)
         {
@@ -367,11 +486,20 @@ namespace TexasBurgerApp.Models
 
             InsertIngridient(GetCurrentCust(), Menu.Bun.ID);
             InsertIngridient(GetCurrentCust(), Menu.Meat.ID);
-
             //Make Cheese Optional
-            if(Menu.Cheese != null)
+            if (Menu.Cheese != null)
             {
                 InsertIngridient(GetCurrentCust(), Menu.Cheese.ID);
+            }
+            //Make Green Optional
+            if (Menu.Green != null)
+            {
+                InsertIngridient(GetCurrentCust(), Menu.Green.ID);
+            }
+            //Make dressing Optional
+            if (Menu.Dressing != null)
+            {
+                InsertIngridient(GetCurrentCust(), Menu.Dressing.ID);
             }
         }
 

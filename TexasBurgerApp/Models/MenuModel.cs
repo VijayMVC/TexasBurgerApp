@@ -12,5 +12,7 @@ namespace TexasBurgerApp.Models
         public IngridientModel Bun { get; set; }
         public IngridientModel Meat { get; set; }//Max 2
         public IngridientModel Cheese { get; set; } = null;
+        public IngridientModel Green { get; set; } = null;
+        public IngridientModel Dressing { get; set; } = null;
     }
 }

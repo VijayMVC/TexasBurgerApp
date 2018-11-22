@@ -15,7 +15,7 @@ namespace TexasBurgerApp
 
             routes.MapRoute(
                "AddBurger",
-               "AddBurger/{custName}/{tableID}/{bunID}/{meatID}/{cheeseID}",
+               "AddBurger/{custName}/{tableID}/{bunID}/{meatID}/{cheeseID}/{greenID}/{dressingID}",
                new {
                    controller = "Burger",
                    action = "AddBurger",
@@ -23,7 +23,9 @@ namespace TexasBurgerApp
                    tableID = "",
                    bunID = "",
                    meatID = "",
-                   cheeseID = 0 }
+                   cheeseID = 0,
+                   greenID = 0,
+                   dressingID = 0 }
            );
             routes.MapRoute(
                 name: "Default",

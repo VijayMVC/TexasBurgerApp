@@ -16,6 +16,14 @@ $(document).ready(function () {
         Cheese: {
             ID: null,
             Name: null
+        },
+        Green: {
+            ID: null,
+            Name: null
+        },
+        Dressing: {
+            ID: null,
+            Name: null
         }
     };
 
@@ -47,6 +55,23 @@ $(document).ready(function () {
     $("#selected-cheese-btn").attr("data-cheese-ing-id", $(DisplayItem).data('cheese-ing-id'));
     $("#selected-cheese-btn").attr("data-cheese-ing-name", $(DisplayItem).data('cheese-ing-name'));
 
+    //Set Start items Green
+    DisplayItem = $('.greenDisplay').first();
+    $("#selected-heading-green").html($(DisplayItem).data('green-ing-name'));
+    $("#selected-price-green").html($(DisplayItem).data('green-ing-price'));
+    srcString = "/Content/ingridients-images/" + $(DisplayItem).data('green-ing-id') + "_" + $(DisplayItem).data('green-ing-name') + ".png";
+    $("#selected-image-green").attr("src", srcString);
+    $("#selected-green-btn").attr("data-green-ing-id", $(DisplayItem).data('green-ing-id'));
+    $("#selected-green-btn").attr("data-green-ing-name", $(DisplayItem).data('green-ing-name'));
+
+    //Set Start items Dressing
+    DisplayItem = $('.dressingDisplay').first();
+    $("#selected-heading-dressing").html($(DisplayItem).data('dressing-ing-name'));
+    $("#selected-price-dressing").html($(DisplayItem).data('dressing-ing-price'));
+    srcString = "/Content/ingridients-images/" + $(DisplayItem).data('dressing-ing-id') + "_" + $(DisplayItem).data('dressing-ing-name') + ".png";
+    $("#selected-image-dressing").attr("src", srcString);
+    $("#selected-green-btn").attr("data-dressing-ing-id", $(DisplayItem).data('dressing-ing-id'));
+    $("#selected-green-btn").attr("data-dressing-ing-name", $(DisplayItem).data('dressing-ing-name'));
 
     //Change selected based on click
     $('.bunDisplay').on('click', function (e) {
@@ -223,6 +248,122 @@ $(document).ready(function () {
     });
 
 
+    /*Green Section*/
+    //Change selected based on click
+    $('.greenDisplay').on('click', function (e) {
+        e.preventDefault();
+
+        $("#selected-heading-green").html($(this).data('green-ing-name'));
+        $("#selected-price-green").html($(this).data('green-ing-price'));
+        var srcString = "/Content/ingridients-images/" + $(this).data('green-ing-id') + "_" + $(this).data('green-ing-name') + ".png";
+        $("#selected-image-green").attr("src", srcString);
+        $("#selected-green-btn").attr("data-green-ing-id", $(this).data('green-ing-id'));
+        $("#selected-green-btn").attr("data-green-ing-name", $(this).data('green-ing-name'));
+
+        if (Burger.Green.ID == $(this).data('green-ing-id')) {
+            $("#unselect-green-btn").removeClass('btn-secondary disabled');
+        } else {
+            $("#unselect-green-btn").addClass('btn-secondary disabled');
+        }
+    });
+
+    var greenint = 0;
+    //Add selected to burger array based on btn click
+    $('#selected-green-btn').on('click', function (e) {
+        e.preventDefault();
+
+        var greenID = $(this).attr("data-green-ing-id");
+        var greenName = $(this).attr("data-green-ing-name");
+
+        Burger.Green.ID = greenID;
+        Burger.Green.Name = greenName;
+
+        greenInt = 1;
+        $("div[data-green-ing-id='" + Burger.Green.ID + "']").addClass("selected-bun");
+
+        $('#green-counter').html(greenInt);
+
+        $(this).addClass("d-none");
+        $("#unselect-green-btn").removeClass("d-none").removeClass("btn-secondary disabled");
+        console.log(Burger);
+    });
+    //Remove selected from burger array based on btn click
+    $('body').on('click', '#unselect-green-btn', function (e) {
+        e.preventDefault();
+
+        greenInt = 0;
+        $("div[data-green-ing-id='" + Burger.Green.ID + "']").removeClass("selected-bun");
+
+        $('#green-counter').html(greenint);
+
+        $(this).addClass("d-none");
+        $("#selected-green-btn").removeClass("d-none");
+
+        Burger.Green.ID = null;
+        Burger.Green.Name = null;
+        console.log(Burger);
+    });
+
+
+
+    /*dressing Section*/
+    //Change selected based on click
+    $('.dressingDisplay').on('click', function (e) {
+        e.preventDefault();
+
+        $("#selected-heading-dressing").html($(this).data('dressing-ing-name'));
+        $("#selected-price-dressing").html($(this).data('dressing-ing-price'));
+        var srcString = "/Content/ingridients-images/" + $(this).data('dressing-ing-id') + "_" + $(this).data('dressing-ing-name') + ".png";
+        $("#selected-image-dressing").attr("src", srcString);
+        $("#selected-dressing-btn").attr("data-dressing-ing-id", $(this).data('dressing-ing-id'));
+        $("#selected-dressing-btn").attr("data-dressing-ing-name", $(this).data('dressing-ing-name'));
+
+        if (Burger.Dressing.ID == $(this).data('dressing-ing-id')) {
+            $("#unselect-dressing-btn").removeClass('btn-secondary disabled');
+        } else {
+            $("#unselect-dressing-btn").addClass('btn-secondary disabled');
+        }
+    });
+
+    var dressingint = 0;
+    //Add selected to burger array based on btn click
+    $('#selected-dressing-btn').on('click', function (e) {
+        e.preventDefault();
+
+        var dressingID = $(this).attr("data-dressing-ing-id");
+        var dressingName = $(this).attr("data-dressing-ing-name");
+
+        Burger.Dressing.ID = dressingID;
+        Burger.Dressing.Name = dressingName;
+
+        drissingInt = 1;
+        $("div[data-dressing-ing-id='" + Burger.Dressing.ID + "']").addClass("selected-bun");
+
+        $('#dressing-counter').html(dressingInt);
+
+        $(this).addClass("d-none");
+        $("#unselect-dressing-btn").removeClass("d-none").removeClass("btn-secondary disabled");
+        console.log(Burger);
+    });
+    //Remove selected from burger array based on btn click
+    $('body').on('click', '#unselect-dressing-btn', function (e) {
+        e.preventDefault();
+
+        drissingInt = 0;
+        $("div[data-dressing-ing-id='" + Burger.Dressing.ID + "']").removeClass("selected-bun");
+
+        $('#dressing-counter').html(dressingint);
+
+        $(this).addClass("d-none");
+        $("#selected-dressing-btn").removeClass("d-none");
+
+        Burger.Dressing.ID = null;
+        Burger.Dressing.Name = null;
+        console.log(Burger);
+    });
+
+
+
     //Finish Burger Functionality
     $('.finish-burger-btn').on('click', function (e) {
         e.preventDefault();
@@ -236,10 +377,18 @@ $(document).ready(function () {
             $('#confirmModal .order-ul').append('<li class="order-list-heading">Bord: ' + Burger.Table.TableNumber + '</li > ');
             $('#confirmModal .order-ul').append('<li class="order-list-heading">Navn: ' + Burger.Table.CustName + '</li > ');
             $('#confirmModal .order-ul').append('<li class="order-list-heading">Bolle:</li><li>' + Burger.Bun.Name + '</li>');
-            $('#confirmModal .order-ul').append('<li class="order-list-heading">Steak:</li><li>' + Burger.Meat.Name + '</li>');
+            $('#confirmModal .order-ul').append('<li class="order-list-heading">B&oslashf:</li><li>' + Burger.Meat.Name + '</li>');
 
             if (Burger.Cheese.ID != null) {
                 $('#confirmModal .order-ul').append('<li class="order-list-heading">Ost:</li><li>' + Burger.Cheese.Name + '</li>');
+            }
+
+            if (Burger.Green.ID != null) {
+                $('#confirmModal .order-ul').append('<li class="order-list-heading">Gr&oslashnt:</li><li>' + Burger.Green.Name + '</li>');
+            }
+
+            if (Burger.Dressing.ID != null) {
+                $('#confirmModal .order-ul').append('<li class="order-list-heading">Dressing:</li><li>' + Burger.Dressing.Name + '</li>');
             }
 
             $('#confirmModal').modal('show');
@@ -258,8 +407,10 @@ $(document).ready(function () {
             hrefURL += Burger.Table.TableNumber + "/";
             hrefURL += Burger.Bun.ID + "/";
             hrefURL += Burger.Meat.ID + "/";
-            hrefURL += ((Burger.Cheese.ID != null) ? Burger.Cheese.ID : "");
-
+            hrefURL += ((Burger.Cheese.ID != null) ? Burger.Cheese.ID + "/": "");
+            hrefURL += ((Burger.Green.ID != null) ? Burger.Green.ID + "/" : "");
+            hrefURL += ((Burger.Dressing.ID != null) ? Burger.Dressing.ID + "/" : "");
+            
             alert("Din bestilling er blevet sendt videre!");
 
             window.location.href = hrefURL; 

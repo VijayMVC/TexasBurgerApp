@@ -20,6 +20,8 @@ namespace TexasBurgerApp.Controllers
                 ingridients = new IngMapper().SelectAllBread(),
                 ingridientsMeats = new IngMapper().SelectAllMeat(),
                 ingridientsCheese = new IngMapper().SelectAllCheese(),
+                ingridientsGreen = new IngMapper().SelectAllGreen(),
+                ingridientsDressing = new IngMapper().SelectAllDressing(),
                 CurrentlySelected = new IngMapper().GetIngridient((int)id)
             };
 
@@ -27,7 +29,7 @@ namespace TexasBurgerApp.Controllers
         }
 
 
-        public ActionResult AddBurger(string custName, int tableID, int bunID, int meatID, int cheeseID)
+        public ActionResult AddBurger(string custName, int tableID, int bunID, int meatID, int cheeseID, int greenID, int dressingID)
         {
             IngridientModel Bun = new IngMapper().GetIngridient(bunID);
             IngridientModel Meat = new IngMapper().GetIngridient(meatID);
@@ -43,6 +45,16 @@ namespace TexasBurgerApp.Controllers
             if(cheeseID != 0)
             {
                 Menu.Cheese = new IngMapper().GetIngridient(cheeseID);
+            }
+
+            if (greenID != 0)
+            {
+                Menu.Green = new IngMapper().GetIngridient(greenID);
+            }
+
+            if (dressingID != 0)
+            {
+                Menu.Dressing = new IngMapper().GetIngridient(dressingID);
             }
 
             IngMapper mapper = new IngMapper();

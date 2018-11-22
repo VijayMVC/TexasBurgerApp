@@ -86,6 +86,9 @@ body {
 .btn-primary {
     background-color: #8D0001 !important;
 }
+    .btn-primary.disabled {
+        background-color: #EB6864 !important;
+    }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     height: 100px;
