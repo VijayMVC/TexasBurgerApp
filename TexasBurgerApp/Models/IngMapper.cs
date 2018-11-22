@@ -496,7 +496,7 @@ namespace TexasBurgerApp.Models
             {
                 InsertIngridient(GetCurrentCust(), Menu.Green.ID);
             }
-            //Make dressing Optional
+            //Make Dressing Optional
             if (Menu.Dressing != null)
             {
                 InsertIngridient(GetCurrentCust(), Menu.Dressing.ID);

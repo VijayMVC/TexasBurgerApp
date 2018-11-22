@@ -66,12 +66,15 @@ $(document).ready(function () {
 
     //Set Start items Dressing
     DisplayItem = $('.dressingDisplay').first();
+    console.log(DisplayItem);
     $("#selected-heading-dressing").html($(DisplayItem).data('dressing-ing-name'));
     $("#selected-price-dressing").html($(DisplayItem).data('dressing-ing-price'));
     srcString = "/Content/ingridients-images/" + $(DisplayItem).data('dressing-ing-id') + "_" + $(DisplayItem).data('dressing-ing-name') + ".png";
-    $("#selected-image-dressing").attr("src", srcString);
-    $("#selected-green-btn").attr("data-dressing-ing-id", $(DisplayItem).data('dressing-ing-id'));
-    $("#selected-green-btn").attr("data-dressing-ing-name", $(DisplayItem).data('dressing-ing-name'));
+    //$("#selected-image-dressing").attr("src", srcString);
+    alert(srcString);
+    $("#selected-image-dressing").attr("src", "/Content/ingridients-images/1006_Ketchup.png");
+    $("#selected-dressing-btn").attr("data-dressing-ing-id", $(DisplayItem).data('dressing-ing-id'));
+    $("#selected-dressing-btn").attr("data-dressing-ing-name", $(DisplayItem).data('dressing-ing-name'));
 
     //Change selected based on click
     $('.bunDisplay').on('click', function (e) {
@@ -267,7 +270,7 @@ $(document).ready(function () {
         }
     });
 
-    var greenint = 0;
+    var greenInt = 0;
     //Add selected to burger array based on btn click
     $('#selected-green-btn').on('click', function (e) {
         e.preventDefault();
@@ -294,7 +297,7 @@ $(document).ready(function () {
         greenInt = 0;
         $("div[data-green-ing-id='" + Burger.Green.ID + "']").removeClass("selected-bun");
 
-        $('#green-counter').html(greenint);
+        $('#green-counter').html(greenInt);
 
         $(this).addClass("d-none");
         $("#selected-green-btn").removeClass("d-none");
@@ -325,7 +328,7 @@ $(document).ready(function () {
         }
     });
 
-    var dressingint = 0;
+    var dressingInt = 0;
     //Add selected to burger array based on btn click
     $('#selected-dressing-btn').on('click', function (e) {
         e.preventDefault();
@@ -336,7 +339,7 @@ $(document).ready(function () {
         Burger.Dressing.ID = dressingID;
         Burger.Dressing.Name = dressingName;
 
-        drissingInt = 1;
+        dressingInt = 1;
         $("div[data-dressing-ing-id='" + Burger.Dressing.ID + "']").addClass("selected-bun");
 
         $('#dressing-counter').html(dressingInt);
@@ -349,10 +352,10 @@ $(document).ready(function () {
     $('body').on('click', '#unselect-dressing-btn', function (e) {
         e.preventDefault();
 
-        drissingInt = 0;
+        dressingInt = 0;
         $("div[data-dressing-ing-id='" + Burger.Dressing.ID + "']").removeClass("selected-bun");
 
-        $('#dressing-counter').html(dressingint);
+        $('#dressing-counter').html(dressingInt);
 
         $(this).addClass("d-none");
         $("#selected-dressing-btn").removeClass("d-none");

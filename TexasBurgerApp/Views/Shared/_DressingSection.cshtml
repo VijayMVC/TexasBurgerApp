@@ -1,6 +1,6 @@
 ﻿<div class="tab-pane fade" id="dressingPanel">
     <div class="row">
-        <h1 class="text-center heading-text col-12">Vælg tilbehør</h1>
+        <h1 class="text-center heading-text col-12">Vælg en Dressing</h1>
         <div class="col-2">
             <ul class="picked-list"></ul>
         </div>
@@ -15,8 +15,8 @@
                 <p class="list-head-dressing"><span id="dressing-counter">0</span>/1</p>
                 <h2 id="selected-heading-dressing">@Model.CurrentlySelected.IngName</h2>
                 <p>Pris: <span id="selected-price-dressing">@Model.CurrentlySelected.Cost</span> kr</p>
-                <a class="btn btn-primary btn-lg btn-block" id="selected-dressing-btn" data-dressing-type="4" data-dressing-ing-id="@Model.CurrentlySelected.ID" data-dressing-ing-name="@Model.CurrentlySelected.IngName" href="@Url.Action("AddBun", "Burger", new { id =  Model.CurrentlySelected.ID})">+ Tilføj</a>
-                <a class="btn btn-primary btn-lg btn-block d-none" id="unselect-dressing-btn" data-dressing-type="4" data-dressing-ing-id="@Model.CurrentlySelected.ID" data-dressing-ing-name="@Model.CurrentlySelected.IngName" href="@Url.Action("AddBun", "Burger", new { id =  Model.CurrentlySelected.ID})">- Fjern</a>
+                <a class="btn btn-primary btn-lg btn-block" id="selected-dressing-btn" data-dressing-type="2" data-dressing-ing-id="@Model.CurrentlySelected.ID" data-dressing-ing-name="@Model.CurrentlySelected.IngName" href="@Url.Action("AddBun", "Burger", new { id =  Model.CurrentlySelected.ID})">+ Tilføj</a>
+                <a class="btn btn-primary btn-lg btn-block d-none" id="unselect-dressing-btn" data-dressing-type="2" data-dressing-ing-id="@Model.CurrentlySelected.ID" data-dressing-ing-name="@Model.CurrentlySelected.IngName" href="@Url.Action("AddBun", "Burger", new { id =  Model.CurrentlySelected.ID})">- Fjern</a>
             </div>
         </div>
         <div class="col-12">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-   
+
     </div>
 
 </div>
