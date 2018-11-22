@@ -9,12 +9,16 @@ namespace TexasBurgerApp.Models
 {
     public class IngMapper : DB
     {
+        //Selects all Ingridients from the database.
         public List<IngridientModel> SelectAll()
         {
+            //Makes a new list of ingridient objects
             List<IngridientModel> ingList = new List<IngridientModel>();
 
+            //Gets the SQL connection from the inherited method.
             SqlCommand command = GetConnection().CreateCommand();
 
+            //Sets the Command text for the Select statement
             command.CommandType = CommandType.Text;
             command.CommandText = 
                 @"SELECT
@@ -28,12 +32,15 @@ namespace TexasBurgerApp.Models
                 INNER JOIN IngType AS it
                 ON i.FK_IngType = it.ID";
 
+            //Executes the command
             SqlDataReader reader = command.ExecuteReader();
 
+            //Checks if there is a result of the command. 
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
+                    //Adds each result to a new IngridientModel Object in the ingList
                     ingList.Add
                     (
                         new IngridientModel
@@ -53,6 +60,7 @@ namespace TexasBurgerApp.Models
 
             }
 
+            //Releases Connection
             ReleaseConnection();
 
             return ingList;
@@ -113,6 +121,7 @@ namespace TexasBurgerApp.Models
 
             return ingList;
         }
+        //Gets an ingridient based on its ID
         public IngridientModel GetIngridient(int id)
         {
             SqlCommand command = GetConnection().CreateCommand();
@@ -167,6 +176,7 @@ namespace TexasBurgerApp.Models
 
             return returnIngridient;
         }
+        //Select all of each Type 
         public List<IngridientModel> SelectAllBread()
         {
             List<IngridientModel> ingList = new List<IngridientModel>();
@@ -345,6 +355,7 @@ namespace TexasBurgerApp.Models
             return ingList;
         }
 
+        //Creates a new burger based on the Menu model given
         public void CreateNewBurger(MenuModel Menu)
         {
             SqlCommand command = GetConnection().CreateCommand();
@@ -386,6 +397,8 @@ namespace TexasBurgerApp.Models
 
             ReleaseConnection();
         }
+
+        //Gets the current Customer 
         public int GetCurrentCust()
         {
             SqlCommand command = GetConnection().CreateCommand();
