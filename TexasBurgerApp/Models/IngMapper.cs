@@ -57,7 +57,6 @@ namespace TexasBurgerApp.Models
 
             return ingList;
         }
-
         public List<IngridientModel> SelectAllWithStock()
         {
             List<IngridientModel> ingList = new List<IngridientModel>();
@@ -114,7 +113,6 @@ namespace TexasBurgerApp.Models
 
             return ingList;
         }
-
         public IngridientModel GetIngridient(int id)
         {
             SqlCommand command = GetConnection().CreateCommand();
@@ -169,7 +167,6 @@ namespace TexasBurgerApp.Models
 
             return returnIngridient;
         }
-
         public List<IngridientModel> SelectAllBread()
         {
             List<IngridientModel> ingList = new List<IngridientModel>();
@@ -374,7 +371,6 @@ namespace TexasBurgerApp.Models
                 InsertIngridient(GetCurrentCust(), Menu.Cheese.ID);
             }
         }
-
         public void InsertIngridient(int custID, int ingID)
         {
             SqlCommand command = GetConnection().CreateCommand();

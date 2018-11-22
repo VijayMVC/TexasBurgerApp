@@ -45,7 +45,7 @@ namespace TexasBurgerApp.Controllers
                 Menu.Cheese = new IngMapper().GetIngridient(cheeseID);
             }
 
-            IngMapper mapper = new IngMapper();
+            MenuMapper mapper = new MenuMapper();
             mapper.CreateNewBurger(Menu);
 
             return this.RedirectToAction("Index", "Burger");
